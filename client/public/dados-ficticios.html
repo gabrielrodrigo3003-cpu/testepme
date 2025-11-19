@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Gerar Dados Fictícios - FinanceIA Pro</title>
+</head>
+<body>
+    <h1>Gerando dados fictícios...</h1>
+    <script>
+        // Empresa fictícia: TechSolutions Ltda - Empresa de Serviços de TI
+        
+        const hoje = new Date();
+        const getDate = (monthsAgo, day = 15) => {
+            const d = new Date(hoje);
+            d.setMonth(d.getMonth() - monthsAgo);
+            d.setDate(day);
+            return d.toISOString().split('T')[0];
+        };
+
+        // Metas
+        const goals = {
+            monthlyRevenue: 150000,
+            monthlyProfit: 45000,
+            profitMargin: 30,
+            maxExpenses: 105000,
+            minCashFlow: 50000
+        };
+
+        // Receitas (últimos 6 meses)
+        const transactions = [
+            // Mês atual
+            { id: 1, date: getDate(0, 5), description: 'Desenvolvimento de Sistema - Cliente A', amount: 35000, category: 'Prestação de Serviços', quantity: '1', unitPrice: '35000', type: 'receita', paymentType: 'vista' },
+            { id: 2, date: getDate(0, 12), description: 'Consultoria em Cloud - Cliente B', amount: 28000, category: 'Consultorias', quantity: '40', unitPrice: '700', type: 'receita', paymentType: 'prazo' },
+            { id: 3, date: getDate(0, 18), description: 'Manutenção Mensal - Cliente C', amount: 15000, category: 'Manutenções', quantity: '1', unitPrice: '15000', type: 'receita', paymentType: 'vista' },
+            { id: 4, date: getDate(0, 25), description: 'Assinatura Premium - 10 Clientes', amount: 12000, category: 'Assinaturas', quantity: '10', unitPrice: '1200', type: 'receita', paymentType: 'vista' },
+            
+            // Mês -1
+            { id: 5, date: getDate(1, 8), description: 'Desenvolvimento Mobile - Cliente D', amount: 42000, category: 'Prestação de Serviços', quantity: '1', unitPrice: '42000', type: 'receita', paymentType: 'prazo' },
+            { id: 6, date: getDate(1, 15), description: 'Consultoria DevOps - Cliente E', amount: 25000, category: 'Consultorias', quantity: '50', unitPrice: '500', type: 'receita', paymentType: 'vista' },
+            { id: 7, date: getDate(1, 22), description: 'Manutenção Mensal - Clientes Diversos', amount: 18000, category: 'Manutenções', quantity: '1', unitPrice: '18000', type: 'receita', paymentType: 'vista' },
+            
+            // Mês -2
+            { id: 8, date: getDate(2, 10), description: 'Sistema ERP Customizado', amount: 55000, category: 'Prestação de Serviços', quantity: '1', unitPrice: '55000', type: 'receita', paymentType: 'prazo' },
+            { id: 9, date: getDate(2, 20), description: 'Assinatura Premium - 8 Clientes', amount: 9600, category: 'Assinaturas', quantity: '8', unitPrice: '1200', type: 'receita', paymentType: 'vista' },
+            
+            // Mês -3
+            { id: 10, date: getDate(3, 5), description: 'Migração para Nuvem - Cliente F', amount: 38000, category: 'Consultorias', quantity: '1', unitPrice: '38000', type: 'receita', paymentType: 'vista' },
+            { id: 11, date: getDate(3, 18), description: 'Desenvolvimento Web - Cliente G', amount: 32000, category: 'Prestação de Serviços', quantity: '1', unitPrice: '32000', type: 'receita', paymentType: 'prazo' }
+        ];
+
+        // Despesas
+        const expenses = [
+            // Despesas Fixas - Mês atual
+            { id: 101, date: getDate(0, 5), description: 'Salários - 5 Desenvolvedores', amount: 35000, category: 'Folha de Pagamento', type: 'fixa', paymentType: 'vista' },
+            { id: 102, date: getDate(0, 5), description: 'Encargos Sociais', amount: 12250, category: 'Encargos Sociais', type: 'fixa', paymentType: 'vista' },
+            { id: 103, date: getDate(0, 10), description: 'Aluguel Escritório', amount: 8000, category: 'Aluguel', type: 'fixa', paymentType: 'vista' },
+            { id: 104, date: getDate(0, 15), description: 'Energia + Internet + Água', amount: 2500, category: 'Água/Luz/Internet', type: 'fixa', paymentType: 'vista' },
+            
+            // Despesas Variáveis - Mês atual
+            { id: 105, date: getDate(0, 8), description: 'Google Ads + Facebook Ads', amount: 5000, category: 'Marketing', type: 'variavel', paymentType: 'vista' },
+            { id: 106, date: getDate(0, 12), description: 'Licenças de Software (AWS, Azure)', amount: 8500, category: 'Fornecedores', type: 'variavel', paymentType: 'vista' },
+            { id: 107, date: getDate(0, 20), description: 'Impostos sobre Serviços (ISS)', amount: 4500, category: 'Impostos', type: 'variavel', paymentType: 'vista' },
+            { id: 108, date: getDate(0, 22), description: 'Material de Escritório', amount: 800, category: 'Material de Escritório', type: 'variavel', paymentType: 'vista' },
+            
+            // Mês -1
+            { id: 109, date: getDate(1, 5), description: 'Salários', amount: 35000, category: 'Folha de Pagamento', type: 'fixa', paymentType: 'vista' },
+            { id: 110, date: getDate(1, 5), description: 'Encargos Sociais', amount: 12250, category: 'Encargos Sociais', type: 'fixa', paymentType: 'vista' },
+            { id: 111, date: getDate(1, 10), description: 'Aluguel Escritório', amount: 8000, category: 'Aluguel', type: 'fixa', paymentType: 'vista' },
+            { id: 112, date: getDate(1, 18), description: 'Marketing Digital', amount: 6200, category: 'Marketing', type: 'variavel', paymentType: 'vista' },
+            { id: 113, date: getDate(1, 25), description: 'Licenças e Cloud', amount: 7800, category: 'Fornecedores', type: 'variavel', paymentType: 'vista' }
+        ];
+
+        // Ativos
+        const assets = [
+            { id: 201, name: 'Servidores e Equipamentos de TI', value: 120000, acquisitionDate: getDate(24, 1), usefulLife: 5, type: 'depreciacao' },
+            { id: 202, name: 'Móveis e Equipamentos de Escritório', value: 45000, acquisitionDate: getDate(18, 1), usefulLife: 10, type: 'depreciacao' },
+            { id: 203, name: 'Software Proprietário Desenvolvido', value: 200000, acquisitionDate: getDate(12, 1), usefulLife: 5, type: 'amortizacao' },
+            { id: 204, name: 'Notebooks e Workstations', value: 80000, acquisitionDate: getDate(6, 1), usefulLife: 3, type: 'depreciacao' }
+        ];
+
+        // Empréstimos
+        const loans = [
+            { id: 301, name: 'Capital de Giro - Banco XYZ', amount: 100000, interestRate: 1.5, months: 24, startDate: getDate(12, 1) },
+            { id: 302, name: 'Financiamento Equipamentos', amount: 50000, interestRate: 1.2, months: 36, startDate: getDate(6, 1) }
+        ];
+
+        // Fluxo de Caixa
+        const cashFlowEntries = [
+            // Entradas - Mês atual
+            { id: 401, date: getDate(0, 5), type: 'entrada', category: 'Vendas à Vista', description: 'Desenvolvimento de Sistema - Cliente A', amount: 35000 },
+            { id: 402, date: getDate(0, 18), type: 'entrada', category: 'Vendas à Vista', description: 'Manutenção Mensal - Cliente C', amount: 15000 },
+            { id: 403, date: getDate(0, 25), type: 'entrada', category: 'Vendas à Vista', description: 'Assinatura Premium - 10 Clientes', amount: 12000 },
+            { id: 404, date: getDate(0, 10), type: 'entrada', category: 'Recebimento Vendas a Prazo', description: 'Recebimento Cliente B - Mês anterior', amount: 28000 },
+            
+            // Saídas - Mês atual
+            { id: 405, date: getDate(0, 5), type: 'saida', category: 'Folha de Pagamento', description: 'Salários + Encargos', amount: 47250 },
+            { id: 406, date: getDate(0, 10), type: 'saida', category: 'Despesas Operacionais', description: 'Aluguel', amount: 8000 },
+            { id: 407, date: getDate(0, 8), type: 'saida', category: 'Despesas Operacionais', description: 'Marketing Digital', amount: 5000 },
+            { id: 408, date: getDate(0, 12), type: 'saida', category: 'Pagamento Fornecedores', description: 'Licenças Cloud', amount: 8500 },
+            { id: 409, date: getDate(0, 20), type: 'saida', category: 'Impostos', description: 'ISS', amount: 4500 },
+            { id: 410, date: getDate(0, 15), type: 'saida', category: 'Amortização Empréstimos', description: 'Parcela Empréstimo Capital Giro', amount: 5000 },
+            { id: 411, date: getDate(0, 15), type: 'saida', category: 'Juros Pagos', description: 'Juros Empréstimo', amount: 1500 },
+            
+            // Mês -1
+            { id: 412, date: getDate(1, 15), type: 'entrada', category: 'Vendas à Vista', description: 'Consultoria DevOps', amount: 25000 },
+            { id: 413, date: getDate(1, 22), type: 'entrada', category: 'Vendas à Vista', description: 'Manutenções', amount: 18000 },
+            { id: 414, date: getDate(1, 5), type: 'saida', category: 'Folha de Pagamento', description: 'Salários + Encargos', amount: 47250 },
+            { id: 415, date: getDate(1, 10), type: 'saida', category: 'Despesas Operacionais', description: 'Aluguel + Utilidades', amount: 10500 }
+        ];
+
+        // Salvar no localStorage
+        localStorage.setItem('companyType', 'servico');
+        localStorage.setItem('goals', JSON.stringify(goals));
+        localStorage.setItem('transactions', JSON.stringify(transactions));
+        localStorage.setItem('expenses', JSON.stringify(expenses));
+        localStorage.setItem('assets', JSON.stringify(assets));
+        localStorage.setItem('loans', JSON.stringify(loans));
+        localStorage.setItem('cashFlowEntries', JSON.stringify(cashFlowEntries));
+
+        document.body.innerHTML = '<h1 style="color: green;">✅ Dados gerados com sucesso!</h1><p>Empresa: <strong>TechSolutions Ltda</strong> (Serviços de TI)</p><p>Redirecionando para o sistema...</p>';
+        
+        setTimeout(() => {
+            window.location.href = '/';
+        }, 2000);
+    </script>
+</body>
+</html>
